@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - 'master'
+      - 'my_custom_ls'
     tags:
       - '*'
 
