@@ -42,7 +42,8 @@ namespace LiveSplit.Model.Comparisons
                     timeloss += (TimeSpan)Run[ind].BestSegmentTime[method];
                     split = timeloss;
                 }
-                Run[ind].Comparisons[Name] = new Time (method, split);
+                if (split != null)
+                    Run[ind].Comparisons[Name] = new Time (method, split);
             }
         }
 
