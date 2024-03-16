@@ -39,18 +39,6 @@ jobs:
         run: |
           & "vstest.console.exe" "LiveSplit/LiveSplit.Tests/bin/Release/LiveSplit.Tests.dll"
 
-      - name: Create a folder for the Server component artifacts
-        run: |
-          mkdir .\LiveSplit.Server
-          Move-Item -path .\LiveSplit\bin\Release\Components\LiveSplit.Server.dll -destination .\LiveSplit.Server
-          Move-Item -path .\LiveSplit\bin\Release\Components\Noesis.Javascript.dll -destination .\LiveSplit.Server
-
-      - name: Upload the Server component as an artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: LiveSplit.Server
-          path: LiveSplit.Server
-
       - name: Upload the Counter component as an artifact
         uses: actions/upload-artifact@v2
         with:
@@ -71,6 +59,8 @@ jobs:
           Get-ChildItem * -Include cef.pak,cef_100_percent.pak,cef_200_percent.pak,cef_extensions.pak,CefSharp.BrowserSubprocess.Core.dll,CefSharp.BrowserSubprocess.exe,CefSharp.Core.Runtime.dll,chrome_elf.dll,d3dcompiler_47.dll,devtools_resources.pak,icudtl.dat,libcef.dll,libEGL.dll,libGLESv2.dll,snapshot_blob.bin,v8_context_snapshot.bin | Remove-Item -Recurse
           Remove-Item locales -Recurse
           Remove-Item swiftshader -Recurse
+          Remove-Item x64/asr_capi.dll
+          Remove-Item x86/asr_capi.dll
 
       - name: Upload build as an artifact
         uses: actions/upload-artifact@v2
