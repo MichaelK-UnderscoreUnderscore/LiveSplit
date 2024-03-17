@@ -36,14 +36,15 @@ namespace LiveSplit.Model.Comparisons
 
             for (var ind = 0; ind < Run.Count; ind++)
             {
+                var time = new Time(Run[ind].Comparisons[Name]);
                 TimeSpan? split = null;
                 if (Run[ind].BestSegmentTime[method] != null)
                 {
                     timeloss += (TimeSpan)Run[ind].BestSegmentTime[method];
                     split = timeloss;
                 }
-                if (split != null)
-                    Run[ind].Comparisons[Name] = new Time (method, split);
+                time[method] = split;
+                Run[ind].Comparisons[Name] = time;
             }
         }
 
