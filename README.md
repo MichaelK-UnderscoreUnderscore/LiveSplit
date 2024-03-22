@@ -48,8 +48,8 @@ You can browse the [Issues](https://github.com/LiveSplit/LiveSplit/issues) to fi
 ## Compiling
 
 LiveSplit is written in C# 7 with Visual Studio and uses .NET Framework 4.6.1. To compile LiveSplit, you need one of these versions of Visual Studio:
- - Visual Studio 2017 Community Edition
- - Visual Studio 2017
+ - Visual Studio 2017 Community Edition or later
+ - Visual Studio 2017 or later
 
 Simply open the project with Visual Studio and it should be able to compile and run without any further configuration.
 
@@ -175,7 +175,7 @@ Node.js client implementation available here: https://github.com/satanch/node-li
 
 1. Update versions of any components that changed (create a Git tag and update the factory file for each component) to match the new LiveSplit version.
 2. Create a Git tag for the new version.
-3. Download `LiveSplit_Build` from the GitHub Actions build for the latest commit on `master`.
+3. Download `LiveSplit_Build` from the GitHub Actions build for the new Git tag.
 4. Create a GitHub release for the new version, and upload the LiveSplit build ZIP file with the correct filename (e.g. `LiveSplit_1.8.21.zip`).
     - Create a release for [`LiveSplit.Counter`](https://github.com/LiveSplit/LiveSplit.Counter) if necessary.
 5. Modify files in [the update folder of LiveSplit.github.io](https://github.com/LiveSplit/LiveSplit.github.io/tree/master/update) and commit the changes:
